@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,47 +31,54 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="0Harmony">
-      <HintPath>..\..\..\..\AppData\Roaming\EXILED\Plugins\dependencies\0Harmony.dll</HintPath>
+    <Reference Include="0Harmony, Version=2.3.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Lib.Harmony.2.3.6\lib\net48\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\ExMod.Exiled.9.6.1\lib\net48\Assembly-CSharp-Publicized.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>..\..\SecretLabReferences\Assembly-CSharp-firstpass.dll</HintPath>
+      <HintPath>$(EXILED_REFERENCES)\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
-    <Reference Include="Assembly-CSharp-Publicized, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\SecretLabReferences\Assembly-CSharp-Publicized.dll</HintPath>
+    <Reference Include="CommandSystem.Core, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\ExMod.Exiled.9.6.1\lib\net48\CommandSystem.Core.dll</HintPath>
     </Reference>
-    <Reference Include="CommandSystem.Core">
-      <HintPath>..\..\SecretLabReferences\CommandSystem.Core.dll</HintPath>
+    <Reference Include="Exiled.API, Version=9.6.1.0, Culture=neutral, processorArchitecture=Amd64">
+      <HintPath>packages\ExMod.Exiled.9.6.1\lib\net48\Exiled.API.dll</HintPath>
     </Reference>
-    <Reference Include="Exiled.API, Version=8.12.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\AppData\Roaming\SCP Secret Laboratory\PluginAPI\plugins\global\dependencies\Exiled.API.dll</HintPath>
+    <Reference Include="Exiled.CreditTags, Version=9.6.1.0, Culture=neutral, processorArchitecture=Amd64">
+      <HintPath>packages\ExMod.Exiled.9.6.1\lib\net48\Exiled.CreditTags.dll</HintPath>
     </Reference>
-    <Reference Include="Exiled.Events">
-      <HintPath>..\..\..\..\AppData\Roaming\EXILED\Plugins\Exiled.Events.dll</HintPath>
+    <Reference Include="Exiled.CustomItems, Version=9.6.1.0, Culture=neutral, processorArchitecture=Amd64">
+      <HintPath>packages\ExMod.Exiled.9.6.1\lib\net48\Exiled.CustomItems.dll</HintPath>
     </Reference>
-    <Reference Include="Exiled.Permissions">
-      <HintPath>..\..\..\..\AppData\Roaming\EXILED\Plugins\Exiled.Permissions.dll</HintPath>
+    <Reference Include="Exiled.CustomRoles, Version=9.6.1.0, Culture=neutral, processorArchitecture=Amd64">
+      <HintPath>packages\ExMod.Exiled.9.6.1\lib\net48\Exiled.CustomRoles.dll</HintPath>
     </Reference>
-    <Reference Include="MapEditorReborn">
-      <HintPath>..\..\..\..\AppData\Roaming\EXILED\Plugins\MapEditorReborn.dll</HintPath>
+    <Reference Include="Exiled.Events, Version=9.6.1.0, Culture=neutral, processorArchitecture=Amd64">
+      <HintPath>packages\ExMod.Exiled.9.6.1\lib\net48\Exiled.Events.dll</HintPath>
     </Reference>
+    <Reference Include="Exiled.Loader, Version=9.6.1.0, Culture=neutral, processorArchitecture=Amd64">
+      <HintPath>packages\ExMod.Exiled.9.6.1\lib\net48\Exiled.Loader.dll</HintPath>
+    </Reference>
+    <Reference Include="Exiled.Permissions, Version=9.6.1.0, Culture=neutral, processorArchitecture=Amd64">
+      <HintPath>packages\ExMod.Exiled.9.6.1\lib\net48\Exiled.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="LabApi, Version=1.1.0.0, Culture=neutral, processorArchitecture=Amd64">
+      <HintPath>packages\ExMod.Exiled.9.6.1\lib\net48\LabApi.dll</HintPath>
+    </Reference>                   
     <Reference Include="Mirror">
-      <HintPath>..\..\SecretLabReferences\Mirror.dll</HintPath>
-    </Reference>
-    <Reference Include="NorthwoodLib">
-      <HintPath>..\..\SecretLabReferences\NorthwoodLib.dll</HintPath>
-    </Reference>
-    <Reference Include="PluginAPI">
-      <HintPath>..\..\SecretLabReferences\PluginAPI.dll</HintPath>
-    </Reference>
+      <HintPath>$(EXILED_REFERENCES)\Mirror.dll</HintPath>
+    </Reference>                   
+    <Reference Include="NorthwoodLib, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\ExMod.Exiled.9.6.1\lib\net48\NorthwoodLib.dll</HintPath>
+    </Reference>    
     <Reference Include="Pooling">
-      <HintPath>..\..\SecretLabReferences\Pooling.dll</HintPath>
+      <HintPath>$(EXILED_REFERENCES)\Pooling.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -80,22 +88,21 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>$(EXILED_REFERENCES)\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>..\..\SecretLabReferences\UnityEngine.dll</HintPath>
+      <HintPath>$(EXILED_REFERENCES)\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\SecretLabReferences\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>$(EXILED_REFERENCES)\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.PhysicsModule">
-      <HintPath>..\..\SecretLabReferences\UnityEngine.PhysicsModule.dll</HintPath>
+      <HintPath>$(EXILED_REFERENCES)\UnityEngine.PhysicsModule.dll</HintPath>
     </Reference>
-    <Reference Include="YamlDotNet">
-      <HintPath>..\..\SecretLabReferences\YamlDotNet.dll</HintPath>
-    </Reference>
-    <Reference Include="zxing">
-      <HintPath>..\..\SecretLabReferences\zxing.dll</HintPath>
-    </Reference>
+    <Reference Include="YamlDotNet, Version=11.0.0.0, Culture=neutral, PublicKeyToken=ec19458f3c15af5e, processorArchitecture=MSIL">
+      <HintPath>packages\ExMod.Exiled.9.6.1\lib\net48\YamlDotNet.dll</HintPath>
+    </Reference>        
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config.cs" />
@@ -122,7 +129,9 @@
     <Compile Include="Types\Pets\PetInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="Dependencies\MapEditorReborn.dll" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

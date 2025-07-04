@@ -1,6 +1,8 @@
-﻿using Exiled.API.Features;
+﻿using System.Runtime.Remoting.Messaging;
+using Exiled.Events.Handlers;
 using SLCosmetics.Cosmetics;
 using UnityEngine;
+using Player = Exiled.API.Features.Player;
 
 namespace SLCosmetics.Types.Glows
 {
@@ -11,13 +13,21 @@ namespace SLCosmetics.Types.Glows
         public override void OnUpdate()
         {
             base.OnUpdate();
-
+            
             if (GlowInfo.Owner is null) return;
 
-            GlowInfo.Light.Position = GlowInfo.Owner.Position + new Vector3(0f, -0.8f, 0f);
-
-            if (GlowInfo.Owner.CurrentRoom.RoomLightController._flickerDuration > 0f)
-                GlowInfo.Light.Position += new Vector3(0,-150,0);
+            if (GlowInfo.Owner.TryGetSessionVariable("cos_stlk", out bool isStalking))
+            {
+                if (isStalking)
+                {
+                    GlowInfo.Light.Intensity = 0f;
+                    return;
+                }
+            }
+            GlowInfo.Light.Intensity = 5f;
+                
+            //GlowInfo.Light.Position = GlowInfo.Owner.Position + new Vector3(0f, -0.8f, 0f);
+            
         }
 
         public override void OnDestroy()

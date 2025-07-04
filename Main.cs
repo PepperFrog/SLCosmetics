@@ -1,4 +1,7 @@
-﻿namespace SLCosmetics
+﻿using Exiled.Events.EventArgs.Scp106;
+using Exiled.Events.Handlers;
+
+namespace SLCosmetics
 {
     using Exiled.API.Features;
     using Exiled.API.Features.Core.UserSettings;
@@ -20,10 +23,10 @@
         public override string Author => "GatoDeveloper";
         public override Version Version => new(1, 0, 0);
         public static Main Instance { get; set; }
-        public static string HarmonyPath => "gatodeveloper.SLCosmetics";
+        //public static string HarmonyPath => "gatodeveloper.SLCosmetics";
 
         // Private
-        private Harmony _harmony;
+        //private Harmony _harmony;
         private List<CosmeticHandler> _cosmeticHandlers = new();
 
         public override void OnEnabled()
@@ -33,9 +36,9 @@
             // Register All CosmeticHandlers
             _cosmeticHandlers = new()
             {
-                new HatCosmetic(),
+                //new HatCosmetic(),
                 new GlowCosmetic(),
-                new PetCosmetic()
+                //new PetCosmetic()
             };
             foreach (var _handler in _cosmeticHandlers)
             {
@@ -43,13 +46,16 @@
             }
 
             // Patch Everything with Harmony
+            /*
             if (_harmony is null)
                 _harmony = new(HarmonyPath);
             _harmony.PatchAll();
-
+            */
             // Events
             PlrEvent.Verified += PlayerVerify;
             PlrEvent.ChangingGroup += PlayerChangingGroup;
+            Scp106.Stalking += OnStalking;
+            Scp106.ExitStalking += OnExitStalking;
 
             // Finally announce the plugin as enabled
             base.OnEnabled();
@@ -65,15 +71,28 @@
             _cosmeticHandlers = null;
 
             // Unpatch Everything with Harmony
+            /*
             if (_harmony is not null)
                 _harmony.UnpatchAll(HarmonyPath);
-
+            */
             // Events
             PlrEvent.Verified -= PlayerVerify;
             PlrEvent.ChangingGroup -= PlayerChangingGroup;
 
             // Finally announce the plugin as disabled
             base.OnDisabled();
+        }
+
+        private static void OnStalking(StalkingEventArgs ev)
+        {
+            if(ev.IsAllowed)
+                ev.Player.SessionVariables["cos_stlk"] = true;
+        }
+        
+        private static void OnExitStalking(ExitStalkingEventArgs ev)
+        {
+            if(ev.IsAllowed)
+                ev.Player.SessionVariables["cos_stlk"] = false;
         }
 
         // This is all meant to handle the issue of Menus competing for each other. Instead, I insert it like this.

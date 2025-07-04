@@ -30,6 +30,8 @@ namespace SLCosmetics.Cosmetics
             _newLight.Range = 1.15f;
             _newLight.Intensity = 5f;
             _newLight.ShadowType = LightShadows.None;
+            _newLight.GameObject.transform.parent = _owner.GameObject.transform;
+            _newLight.GameObject.transform.localPosition = new Vector3(0f, -0.8f, 0f);
             _cosmeticInfo.Light = _newLight;
 
             // Create the Glow Component

@@ -56,7 +56,7 @@ namespace SLCosmetics.Types
         {
             if (_settings is not null)
             {
-                SettingBase.Unregister(null,_settings);
+                SettingBase.Unregister((Func<Player, bool>)null, _settings);
             }
 
             _settings = null;
