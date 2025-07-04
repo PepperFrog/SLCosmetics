@@ -78,6 +78,8 @@ namespace SLCosmetics
             // Events
             PlrEvent.Verified -= PlayerVerify;
             PlrEvent.ChangingGroup -= PlayerChangingGroup;
+            Scp106.Stalking -= OnStalking;
+            Scp106.ExitStalking -= OnExitStalking;
 
             // Finally announce the plugin as disabled
             base.OnDisabled();
